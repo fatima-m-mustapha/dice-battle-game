@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Battle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ===== SETUP SCREEN ===== -->
+        <section class="screen active" id="setupScreen">
+            <header>
+                <h1>🎲 Dice Battle</h1>
+                <p class="subtitle">CS 101 Project: Multiplayer Dice Game</p>
+            </header>
+
+            <div class="card">
+                <div class="form-group">
+                    <label>1. Number of Players</label>
+                    <div class="btn-group" id="playerCountGroup">
+                        <button class="btn active" data-value="2" id="btn-2players">2 Players</button>
+                        <button class="btn" data-value="3" id="btn-3players">3 Players</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Match Type</label>
+                    <div class="btn-group" id="matchTypeGroup">
+                        <button class="btn active" data-value="3" id="btn-bo3">Best of 3 (First to 2)</button>
+                        <button class="btn" data-value="5" id="btn-bo5">Best of 5 (First to 3)</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Player Names</label>
+                    <div class="inputs-list">
+                        <input type="text" class="input-field" placeholder="Player 1 Name" id="input-player1" value="Player 1">
+                        <input type="text" class="input-field" placeholder="Player 2 Name" id="input-player2" value="Player 2">
+                        <input type="text" class="input-field hidden" placeholder="Player 3 Name" id="input-player3" value="Player 3">
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="btnStart">Start Match</button>
+            </div>
+
+            <button class="btn-link" id="btnShowLeaderboard">View Leaderboard</button>
+        </section>
+
+        <!-- ===== GAME SCREEN ===== -->
+        <section class="screen" id="gameScreen">
+            <header class="game-header">
+                <h2>Match Status: <span id="matchBadge">Best of 3</span></h2>
+                <div class="round-badge" id="roundIndicator">Round 1</div>
+            </header>
+
+            <!-- Scoreboard: shows rounds won and current round accumulated score -->
+            <div class="scoreboard" id="scoreboard">
+                <!-- Dynamically generated -->
+            </div>
+
+            <div class="arena card">
+                <div class="round-status">
+                    <h3 id="statusText">Roll the dice to start accumulating points!</h3>
+                </div>
+
+                <div class="dice-grid" id="diceArea">
+                    <!-- Dynamically generated -->
+                </div>
+
+                <div class="actions">
+                    <button class="btn-primary" id="btnRoll">Roll Dice</button>
+                    <button class="btn-success hidden" id="btnNextRound">Next Round</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WINNER SCREEN ===== -->
+        <section class="screen" id="winnerScreen">
+            <div class="card text-center">
+                <span class="victory-icon">🏆</span>
+                <h1 class="winner-title">Match Over!</h1>
+                <p class="winner-name" id="winnerName">Player 1 Wins</p>
+                <div class="final-stats" id="finalScores"></div>
+                <div class="btn-group">
+                    <button class="btn-primary" id="btnRematch">Rematch</button>
+                    <button class="btn" id="btnNewGame">Main Menu</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LEADERBOARD SCREEN ===== -->
+        <section class="screen" id="leaderboardScreen">
+            <div class="card">
+                <h2>Leaderboard</h2>
+                <table class="table" id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Win Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardBody">
+                    </tbody>
+                </table>
+                <p class="empty-msg hidden" id="emptyLeaderboard">No records yet. Start playing!</p>
+
+                <div class="btn-group">
+                    <button class="btn" id="btnBackFromLeaderboard">Back to Menu</button>
+                    <button class="btn-danger" id="btnClearLeaderboard">Clear Data</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
