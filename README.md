@@ -1,4 +1,3 @@
-# dice-battle-game
 # 🎲 Dice Battle Game
  [🎮 Play Dice Battle Online Here](https://fatima-m-mustapha.github.io/dice-battle-game/)
 
