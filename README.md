@@ -1,5 +1,6 @@
 # dice-battle-game
 # 🎲 Dice Battle Game
+ https://fatima-m-mustapha.github.io/dice-battle-game/
 
 An interactive, browser-based dice game built with **HTML, CSS, and JavaScript**, where 2 or 3 players compete to win rounds and become the overall champion.
 
